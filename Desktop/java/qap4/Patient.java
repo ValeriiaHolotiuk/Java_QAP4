@@ -11,5 +11,24 @@ public class Patient {
         this.patientDOB = dob;
     }
 
-    // Getters and toString()
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public String getPatientFirstName() {
+        return patientFirstName;
+    }
+
+    public String getPatientLastName() {
+        return patientLastName;
+    }
+
+    public String getPatientDOB() {
+        return patientDOB;
+    }
+
+    @Override
+    public String toString() {
+        return patientId + ", " + patientFirstName + ", " + patientLastName + ", " + patientDOB;
+    }
 }

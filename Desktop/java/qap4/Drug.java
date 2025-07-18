@@ -11,4 +11,13 @@ public class Drug {
         this.dosage = dosage;
     }
 
+    public int getDrugId() { return drugId; }
+    public String getDrugName() { return drugName; }
+    public double getDrugCost() { return drugCost; }
+    public String getDosage() { return dosage; }
+
+    @Override
+    public String toString() {
+        return drugId + "," + drugName + "," + drugCost + "," + dosage;
+    }
 }
