@@ -1,10 +1,10 @@
 import java.sql.*;
 
 public class DatabaseHandler {
-    private static final String URL = "jdbc:postgresql://localhost:5432/valeriaholotiuk";
+    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USER = "postgres";
     private static final String PASSWORD = "Valeriia2203!";
-    
+
     public static void savePatientToDB(Patient patient) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             String query = "INSERT INTO patient (patientid, firstname, lastname, dob) VALUES (?, ?, ?, ?)";
@@ -12,7 +12,8 @@ public class DatabaseHandler {
             stmt.setInt(1, patient.getPatientId());
             stmt.setString(2, patient.getPatientFirstName());
             stmt.setString(3, patient.getPatientLastName());
-            stmt.setString(4, patient.getPatientDOB());
+            stmt.setDate(4, java.sql.Date.valueOf(patient.getPatientDOB()));
+            
             stmt.executeUpdate();
             System.out.println("Patient saved to DB.");
         } catch (SQLException e) {
@@ -38,3 +39,4 @@ public class DatabaseHandler {
         }
     }
 }
+
